@@ -11,7 +11,7 @@ apiKey = "8ce9ae17-bab0-4ea9-bf32-a3441e69db3c"
 app = Flask(__name__)
 
 
-@app.get('/<query>')
+@app.get('/audio/<query>')
 def getFile(query):
     return receiveLink(query)
 
