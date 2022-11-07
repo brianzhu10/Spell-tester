@@ -1,3 +1,4 @@
+from flask import Flask
 import requests
 import webbrowser
 
@@ -6,6 +7,13 @@ import webbrowser
 # these values will always be the same, language code: en, country code: us, format: mp3
 punctuation = """!"#$%&'()*+,-./:;<=>?@[\]^_`{|}"""
 apiKey = "8ce9ae17-bab0-4ea9-bf32-a3441e69db3c"
+
+app = Flask(__name__)
+
+
+@app.get('/<query>')
+def getFile(query):
+    return receiveLink(query)
 
 
 def getJson(word):
@@ -26,5 +34,4 @@ def receiveLink(word):
     base_filename = getJson(word)[0]["hwi"]['prs'][0]['sound']['audio']
     link = "https://media.merriam-webster.com/audio/prons/en/us/mp3/" + subdirectory + "/" + base_filename + ".mp3"
     webbrowser.open(link)
-
 
