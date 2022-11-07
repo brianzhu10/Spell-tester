@@ -8,8 +8,8 @@ The subdirectory and filename depend on the inputted word. Speficially the filen
 
 
 # Requesting Data
-The user can request data with https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}?key={your-api-key}.
-By using the request URL the user will request for a json file that will contain all of Merriam-Webster's information regarding the word. 
+The user can request data by calling the receieveLink function and passing their desired word as a parameter. 
+The function will call the getJson function which requests a json file from Merriam-Webster using the link https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}key={apiKey}
 
 # Receiving Data
 After requesting the json file throug hthe Merriam-Webster API, a json file will be provided. 
@@ -37,4 +37,5 @@ After requesting the json file throug hthe Merriam-Webster API, a json file will
 }
     
 ```
-Within the json file the "audio" key will be the filename in the mp3 link. 
+Within the json file the "audio" key will be the base filename in the mp3 link. 
+
